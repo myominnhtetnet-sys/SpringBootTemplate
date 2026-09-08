@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:replace="~{head :: head}"></div>
+<body>
+<div th:replace="~{header :: header}"></div>
+
+<main class="container" style="margin-top: 100px; margin-bottom: 100px;">
+        <table class="table table-striped">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>UserName</th>
+					<th>Email</th>
+					<th>Phone Number</th>
+					<th>Address</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="user,index : ${users}">
+					<td th:text="${index.count}"></td>
+					<td th:text="${user.name}"></td>
+					<td th:text="${user.email}"></td>
+					<td th:text="${user.phoneNo}"></td> 
+					<td th:text="${user.address}"></td>
+					<td>
+						<a th:href="@{/users/edit/{id}(id=${user.id})}" class="btn btn-primary">Edit</a>
+						<a th:href="@{/users/delete/{id}(id=${user.id})}" class="btn btn-danger">Delete</a>
+					</td>
+				</tr>
+			</tbody>
+			</table>
+    </main>
+
+<div th:replace="~{footer :: footer}"></div>
+<div th:replace="~{js :: js}"></div>
+
+</body>
+</html>

@@ -1,7 +1,10 @@
 package com.spring.SpringBootTemplate.Controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,11 +29,18 @@ public class User_Controller {
 	public String createUser(@ModelAttribute("userObj") User_Bean user) {
 		int i = userRepo.insertUser(user);
 		if(i>0) {
-			return "";
+			return "redirect:/user/list";
 		}
 		else {
-			return "";
+			return "Create_Form";
 		}
+	}
+	
+	@GetMapping("/list")
+	public String getAllUsers(Model model) {
+		List<User_Bean> users = userRepo.getAllUsers();
+		model.addAttribute("users", users);
+		return "user_list";
 	}
 	
 }
