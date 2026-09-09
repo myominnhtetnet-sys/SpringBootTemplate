@@ -1,16 +1,15 @@
 package com.spring.SpringBootTemplate.Controller;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-
 import com.spring.SpringBootTemplate.Model.User_Bean;
 import com.spring.SpringBootTemplate.Repository.User_Repository;
 
@@ -43,4 +42,31 @@ public class User_Controller {
 		return "user_list";
 	}
 	
+	@GetMapping("/edit/{id}")
+	public ModelAndView getById(@PathVariable("id") Integer id) {
+		User_Bean user = userRepo.getById(id);
+		return new ModelAndView("Edit_Form","userObj",user);
+	}
+	
+	@PostMapping("/update")
+	public String updateUser(@ModelAttribute("userObj") User_Bean user) {
+		int i = userRepo.updateUser(user);
+		if(i>0) {
+			return "redirect:/user/list";
+		}
+		else {
+			return "Edit_Form";
+		}
+	}
+	
+	@PostMapping("/delete/{id}")
+	public String deleteUser(@PathVariable("id") Integer id) {
+		int i = userRepo.deleteUser(id);
+		if(i>0) {
+			return "redirect:/user/list";
+		}
+		else {
+			return "user_list";
+		}
+	}
 }

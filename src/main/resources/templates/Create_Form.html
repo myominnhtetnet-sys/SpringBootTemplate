@@ -20,17 +20,17 @@
 
                         <form th:action="@{/user/create}" method="post" th:object="${userObj}">
                             <div class="form-floating mb-3">
-                                <input type="text" th:field="*{name}" class="form-control" placeholder="username" required>
+                                <input type="text" th:field="*{name}" class="form-control" required>
                                 <label >Name</label>
                             </div>
                             
                             <div class="form-floating mb-3">
-                                <input type="email" th:field="*{email}" class="form-control" placeholder="name@example.com" required>
+                                <input type="email" th:field="*{email}" class="form-control" required>
                                 <label >Email address</label>
                             </div>
 
                             <div class="form-floating mb-3">
-                                <input type="text" th:field="*{phoneNo}" class="form-control" placeholder="09-" required>
+                                <input type="text" th:field="*{phoneNo}" class="form-control" required>
                                 <label >ph - No</label>
                             </div>
                             <div class="form-floating mb-3">
@@ -38,7 +38,7 @@
                                 <label >Address</label>
                             </div>
 
-                            <button class="w-100 btn btn-lg btn-primary rounded-pill mb-3" type="submit">Sign In</button>
+                            <button class="w-100 btn btn-lg btn-primary rounded-pill mb-3" type="submit">Create</button>
 
                             <p class="text-center text-muted small mb-0">
                                 Don't have an account? <a href="#" class="fw-semibold text-decoration-none">Sign up</a>
