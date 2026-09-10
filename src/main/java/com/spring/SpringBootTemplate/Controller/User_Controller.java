@@ -21,7 +21,9 @@ public class User_Controller {
 	
 	@GetMapping("/form")
 	public ModelAndView showUserForm() {
-		return new ModelAndView("Create_Form","userObj",new User_Bean());
+		ModelAndView mv = new ModelAndView("Create_Form","userObj",new User_Bean());
+		mv.addObject("activePage", "createUser");
+		return mv;
 	}
 	
 	@PostMapping("/create")
@@ -39,6 +41,7 @@ public class User_Controller {
 	public String getAllUsers(Model model) {
 		List<User_Bean> users = userRepo.getAllUsers();
 		model.addAttribute("users", users);
+		model.addAttribute("activePage", "userList");
 		return "user_list";
 	}
 	
