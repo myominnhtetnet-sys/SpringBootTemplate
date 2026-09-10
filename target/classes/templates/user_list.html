@@ -61,7 +61,7 @@
 
                     <div class="mb-3">
                         <label for="editName" class="form-label">UserName</label>
-                        <input type="text" class="form-control" id="editName" name="name" required>
+                        <input type="text" class="form-control" id="editName" name="name">
                     </div>
 
                     <div class="mb-3">
@@ -71,12 +71,12 @@
 
                     <div class="mb-3">
                         <label for="editPhone" class="form-label">Phone Number</label>
-                        <input type="text" class="form-control" id="editPhone" name="phoneNo" required>
+                        <input type="text" class="form-control" id="editPhone" name="phoneNo">
                     </div>
 
                     <div class="mb-3">
                         <label for="editAddress" class="form-label">Address</label>
-                        <input type="text" class="form-control" id="editAddress" name="address" required>
+                        <input type="text" class="form-control" id="editAddress" name="address">
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -90,21 +90,8 @@
 
 <div th:replace="~{footer :: footer}"></div>
 <div th:replace="~{js :: js}"></div>
-
-<!-- Script to populate modal fields on edit button click -->
 <script th:src="@{/js/model.js}"></script>
-<!-- <script>
-    const editUserModal = document.getElementById('editUserModal');
-    editUserModal.addEventListener('show.bs.modal', function (event) {
-        const button = event.relatedTarget; 
-        
-        document.getElementById('editId').value = button.getAttribute('data-id');
-        document.getElementById('editName').value = button.getAttribute('data-name');
-        document.getElementById('editEmail').value = button.getAttribute('data-email');
-        document.getElementById('editPhone').value = button.getAttribute('data-phone');
-        document.getElementById('editAddress').value = button.getAttribute('data-address');
-    });
-</script> -->
+
 
 </body>
 </html>
