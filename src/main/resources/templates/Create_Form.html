@@ -25,12 +25,12 @@
                             </div>
                             
                             <div class="form-floating mb-3">
-                                <input type="email" th:field="*{email}" class="form-control" required>
+                                <input type="email" th:field="*{email}" class="form-control" pattern="[a-z_]+([a-z0-9_]+)*@gmail\.com" required>
                                 <label >Email address</label>
                             </div>
 
                             <div class="form-floating mb-3">
-                                <input type="text" th:field="*{phoneNo}" class="form-control" required>
+                                <input type="number" th:field="*{phoneNo}" class="form-control"  pattern="[0-9]{7,11}" title="Phone number must contain either 7 or 11 digits" required>
                                 <label >ph - No</label>
                             </div>
                             <div class="form-floating mb-3">
