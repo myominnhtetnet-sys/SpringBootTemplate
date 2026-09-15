@@ -44,7 +44,5 @@ public class User_Repository {
 		return jdbcTemplate.update(sql,id);
 	}
 	
-	
-
 }
  
