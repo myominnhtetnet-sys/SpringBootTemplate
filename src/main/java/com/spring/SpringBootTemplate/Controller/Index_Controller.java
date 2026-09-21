@@ -12,7 +12,8 @@ public class Index_Controller {
 	    @GetMapping("/")
 	    public String home(Model model) {
 	        model.addAttribute("activePage", "home");
-	        return "index"; 
+//	        return "index";
+	        return "home";
 	    }
 
 	    @GetMapping("/shop")
